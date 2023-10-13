@@ -1,6 +1,5 @@
 let lista = require('../bancodedados');
-const { dadosLista } = require('../bancodedados');
-let { identificadorLista } = require('../bancodedados');
+let { dadosLista, identificadorLista } = require('../bancodedados');
 
 const listarDados = (req, res) => {
     // Converte os dados recebidos para o formato JSON
@@ -13,7 +12,7 @@ const obterItem = (req, res) => {
     const { id } = req.params;
 
     // Permite busca dentro de um ARRAY informado
-    const lista = dadosLista.find((listaElemento) => {
+    let lista = dadosLista.find((listaElemento) => {
         // Busca o ID solicitado no FIND
         return listaElemento.id === Number(id);
     });
@@ -95,7 +94,6 @@ const excluirItem = (req, res) => {
     let lista = dadosLista.find((listaElemento) => {
         return listaElemento.id === Number(id);
     });
-
     if(!lista){
         return res.status(404).json({mensagem: "Objeto não encontrado."});
     }

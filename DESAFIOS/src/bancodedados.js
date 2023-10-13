@@ -6,7 +6,10 @@ module.exports = {
         senha: 'Cubos123Bank'
     },
     contas: [],
-    saques: [],
+    saques: [
+        // Valor em centavos (Ex.: R$ 10,00 reais = 1000)
+    ],
     depositos: [],
-    transferencias: []
+    transferencias: [],
+    idConta: 1,
 }
